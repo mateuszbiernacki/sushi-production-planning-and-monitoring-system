@@ -6,10 +6,7 @@ pipeline {
     stages {
         stage("Build"){
             steps {
-                sh "cd web-server/sushifactory-webserver/sushifactory-webserver"
-                sh "mvn -version"
-                sh "mvn -f pom.xml compile"
-                sh "mvn -B -DskipTests clean package"
+                sh "cd web-server/sushifactory-webserver/sushifactory-webserver; mvn -B -DskipTests clean package"
             }
             
         }
