@@ -3,9 +3,12 @@ pipeline {
 
     stages {
         stage("Build"){
-            sh "cd web-server/sushifactory-webserver/sushifactory-webserver"
-            sh "mvn -version"
-            sh "mvn clean install"
+            steps {
+                sh "cd web-server/sushifactory-webserver/sushifactory-webserver"
+                sh "mvn -version"
+                sh "mvn clean install"
+            }
+            
         }
     }
 
