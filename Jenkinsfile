@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage("Build"){
             steps {
+                sh 'java --version'
                 sh "cd web-server/sushifactory-webserver/sushifactory-webserver; mvn -B -DskipTests clean package"
             }
             
