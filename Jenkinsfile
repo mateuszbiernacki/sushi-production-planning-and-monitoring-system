@@ -1,6 +1,6 @@
 pipeline {
     agent { 
-        docker { image 'docker-slave' } 
+        any { image 'docker-slave' } 
     }
     tools {
         maven "maven-3.9.5"
