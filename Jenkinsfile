@@ -10,7 +10,6 @@ pipeline {
             steps {
                 sh 'java --version'
                 sh '''
-                    apt install wget -y
                     wget https://download.java.net/java/early_access/jdk21/28/GPL/openjdk-21-ea+xx_linux-aarch64_bin.tar.gz
                     wget https://download.java.net/java/early_access/jdk21/28/GPL/openjdk-21-ea+xx_linux-x64_bin.tar.gz
                     tar -xvf openjdk-21-ea+28_linux-x64_bin.tar.gz
