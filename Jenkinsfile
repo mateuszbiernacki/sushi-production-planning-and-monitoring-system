@@ -17,7 +17,7 @@ pipeline {
         }
         stage("Build dockerfile"){
             steps {
-                sh 'ls -al /web-server/sushifactory-webserver/sushifactory-webserver/target/'
+                sh 'sudo docker --version'
             }
         }
     }
