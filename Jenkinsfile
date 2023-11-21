@@ -23,6 +23,7 @@ pipeline {
                 sh 'whoami'
                 sh 'docker --version'
                 sh 'ls -al'
+                sh 'ls -al web-server/sushifactory-webserver/sushifactory-webserver/target'
             }
         }
     }
