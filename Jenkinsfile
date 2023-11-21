@@ -40,7 +40,6 @@ pipeline {
                 sh '''
                     docker ps
                     cd parser
-                    docker build -t fratris/sushi-webserver:test-release .
                     docker build -t fratris/sushi-parser:test-release .
                     docker push fratris/sushi-parser:test-release
                 '''
