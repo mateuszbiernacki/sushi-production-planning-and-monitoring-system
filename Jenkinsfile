@@ -20,6 +20,7 @@ pipeline {
             steps {
                 sh 'whoami'
                 sh 'docker --version'
+                sh 'ls -al'
             }
         }
     }
