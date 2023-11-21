@@ -12,6 +12,7 @@ pipeline {
                 sh 'whoami'
                 sh 'java --version'
                 sh "cd web-server/sushifactory-webserver/sushifactory-webserver; mvn -B -DskipTests clean package"
+                stash includes: 'web-server/**/target/*.jar', name: 'jarfile'
             }
             
         }
