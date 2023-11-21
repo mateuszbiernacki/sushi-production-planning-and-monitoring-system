@@ -18,7 +18,7 @@ pipeline {
         stage("Build dockerfile"){
             agent {label "master"}
             steps {
-                sh 'whoiam'
+                sh 'whoami'
                 sh 'sudo docker --version'
             }
         }
