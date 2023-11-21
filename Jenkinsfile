@@ -16,7 +16,7 @@ pipeline {
             }
             
         }
-        stage("Build dockerfile"){
+        stage("Build webserver dockerfile"){
             agent {label "master"}
             steps {
                 unstash 'jarfile'
@@ -28,6 +28,21 @@ pipeline {
                     cd web-server/sushifactory-webserver/sushifactory-webserver/
                     docker build -t fratris/sushi-webserver:test-release .
                     docker push fratris/sushi-webserver:test-release
+                '''
+            }
+        }
+
+        stage("Build parser dockerfile"){
+            agent {label "master"}
+            steps {
+                sh 'whoami'
+                sh 'docker --version'
+                sh '''
+                    docker ps
+                    cd parser
+                    docker build -t fratris/sushi-webserver:test-release .
+                    docker build -t fratris/sushi-parser:test-release .
+                    docker push fratris/sushi-parser:test-release
                 '''
             }
         }
