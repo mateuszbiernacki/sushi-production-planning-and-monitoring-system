@@ -25,7 +25,8 @@ pipeline {
                 sh 'ls -al web-server/sushifactory-webserver/sushifactory-webserver/target'
                 sh '''
                     cd web-server/sushifactory-webserver/sushifactory-webserver/
-                    cat Dockerfile
+                    docker build -t fratris/sushi-webserver:test-release
+                    docker push fratris/sushi-webserver:test-release
                 '''
             }
         }
