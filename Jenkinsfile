@@ -7,14 +7,18 @@ pipeline {
         jdk "21"
     }
     stages {
-        stage("Build"){
+        stage("Build maven"){
             steps {
                 sh 'whoami'
                 sh 'java --version'
                 sh "cd web-server/sushifactory-webserver/sushifactory-webserver; mvn -B -DskipTests clean package"
-                sh "docker --version"
             }
             
+        }
+        stage("Build dockerfile"){
+            steps {
+                sh 'ls -al'
+            }
         }
     }
 
