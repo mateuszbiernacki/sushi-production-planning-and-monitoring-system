@@ -23,8 +23,10 @@ pipeline {
                 sh 'whoami'
                 sh 'docker --version'
                 sh 'ls -al web-server/sushifactory-webserver/sushifactory-webserver/target'
-                sh 'cp web-server/sushifactory-webserver/sushifactory-webserver/target/*.jar app.jar'
-                sh 'ls -al'
+                sh '''
+                    cd web-server/sushifactory-webserver/sushifactory-webserver/
+                    cat Dockerfile
+                '''
             }
         }
     }
