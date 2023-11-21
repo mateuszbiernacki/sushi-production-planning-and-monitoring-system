@@ -19,6 +19,7 @@ pipeline {
         stage("Build dockerfile"){
             agent {label "master"}
             steps {
+                unstash 'jarfile'
                 sh 'whoami'
                 sh 'docker --version'
                 sh 'ls -al'
