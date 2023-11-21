@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage("Maven"){
             agent { 
-                docker { image 'docker-slave' } 
+                label 'docker-slave'
             }
             stages{
                 stage("Build jar file"){
@@ -23,7 +23,7 @@ pipeline {
         }
         stage("Build dockerfile"){
             agent { 
-                docker { image 'docker-slave' } 
+                label 'docker-slave'
             }
             steps {
                 sh 'ls -al ./web-server/sushifactory-webserver/sushifactory-webserver/target/'
