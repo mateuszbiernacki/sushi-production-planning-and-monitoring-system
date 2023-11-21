@@ -19,7 +19,7 @@ pipeline {
             agent {label "master"}
             steps {
                 sh 'whoami'
-                sh 'sudo docker --version'
+                sh 'docker --version'
             }
         }
     }
