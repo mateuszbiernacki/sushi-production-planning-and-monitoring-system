@@ -45,6 +45,20 @@ pipeline {
                 '''
             }
         }
+
+        stage("Build frontend dockerfile"){
+            agent {label "master"}
+            steps {
+                sh 'whoami'
+                sh 'docker --version'
+                sh '''
+                    docker ps
+                    cd frontend
+                    docker build -t fratris/sushi-frontend:test-release .
+                    docker push fratris/sushi-frontend:test-release
+                '''
+            }
+        }
     }
 
 
