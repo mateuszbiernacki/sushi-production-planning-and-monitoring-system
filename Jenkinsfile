@@ -59,6 +59,18 @@ pipeline {
                 '''
             }
         }
+
+        stage("Deploy k8s"){
+            agent {label "master"}
+            steps {
+                sh 'whoami'
+                sh 'docker --version'
+                sh '''
+                    gcloud auth activate-service-account kubernetes@sushi-factory-system.iam.gserviceaccount.com --key-file=/etc/keys/sushi-factory-system-fc173f74b5e3.json
+                    kubectl get nodes
+                '''
+            }
+        }
     }
 
 
