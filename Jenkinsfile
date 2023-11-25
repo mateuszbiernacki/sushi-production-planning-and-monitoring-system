@@ -66,7 +66,7 @@ pipeline {
                 sh 'whoami'
                 sh 'docker --version'
                 sh '''
-                    kubectl get nodes
+                    /usr/local/bin/kubectl get nodes
                 '''
             }
         }
