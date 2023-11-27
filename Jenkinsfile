@@ -1,7 +1,5 @@
 pipeline {
-    agent { 
-        any { image 'docker-slave' } 
-    }
+    agent {label "ubuntu"}
     tools {
         maven "maven-3.9.5"
         jdk "21"
@@ -17,7 +15,6 @@ pipeline {
             
         }
         stage("Build webserver dockerfile"){
-            agent {label "master"}
             steps {
                 unstash 'jarfile'
                 sh 'whoami'
@@ -33,7 +30,6 @@ pipeline {
         }
 
         stage("Build parser dockerfile"){
-            agent {label "master"}
             steps {
                 sh 'whoami'
                 sh 'docker --version'
@@ -47,7 +43,6 @@ pipeline {
         }
 
         stage("Build frontend dockerfile"){
-            agent {label "master"}
             steps {
                 sh 'whoami'
                 sh 'docker --version'
@@ -61,13 +56,12 @@ pipeline {
         }
 
         stage("Deploy k8s"){
-            agent {label "master"}
             steps {
                 sh 'whoami'
                 sh 'docker --version'
-                sh '''
-                    /usr/local/bin/kubectl get nodes
-                '''
+                // sh '''
+                //     /usr/local/bin/kubectl get nodes
+                // '''
             }
         }
     }
