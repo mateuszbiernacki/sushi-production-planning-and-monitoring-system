@@ -8,6 +8,7 @@ pipeline {
         stage("Build maven"){
             steps {
                 sh 'whoami'
+                sh 'ps -p $$'
                 sh 'java --version'
                 sh "cd web-server/sushifactory-webserver/sushifactory-webserver; mvn -B -DskipTests clean package"
                 stash includes: 'web-server/**/target/*.jar', name: 'jarfile'
@@ -32,6 +33,7 @@ pipeline {
         stage("Build parser dockerfile"){
             steps {
                 sh 'whoami'
+                sh 'ps -p $$'
                 sh 'docker --version'
                 sh '''
                     docker ps
@@ -45,6 +47,7 @@ pipeline {
         stage("Build frontend dockerfile"){
             steps {
                 sh 'whoami'
+                sh 'ps -p $$'
                 sh 'docker --version'
                 sh '''
                     docker ps
@@ -58,6 +61,7 @@ pipeline {
         stage("Deploy k8s"){
             steps {
                 sh 'whoami'
+                sh 'ps -p $$'
                 sh 'docker --version'
                 // sh '''
                 //     /usr/local/bin/kubectl get nodes
