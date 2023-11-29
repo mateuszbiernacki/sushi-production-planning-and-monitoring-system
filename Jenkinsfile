@@ -10,7 +10,7 @@ pipeline {
                 sh 'whoami'
                 sh 'ps -p $$'
                 sh 'java --version'
-                sh 'export JAVA_HOME=$(/usr/bin)'
+                // sh 'export JAVA_HOME=$(/usr/bin)'
                 sh "cd web-server/sushifactory-webserver/sushifactory-webserver; mvn -B -DskipTests clean package"
                 stash includes: 'web-server/**/target/*.jar', name: 'jarfile'
             }
