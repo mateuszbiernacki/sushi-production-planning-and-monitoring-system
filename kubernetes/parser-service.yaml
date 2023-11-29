@@ -6,7 +6,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app.kubernetes.io/name: parser
+    name: parser
   ports:
   - name: http
     port: 8000
