@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: parser-deployment
+  namespace: test
+  labels:
+    app: parser
+    env: test
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: parser
+  template:
+    metadata:
+      labels:
+        app: parser
+    spec:
+      containers:
+      - name: parser
+        image: fratris/sushi-parser:test-release
+        ports:
+        - containerPort: 8000

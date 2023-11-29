@@ -10,7 +10,6 @@ pipeline {
                 sh 'whoami'
                 sh 'ps -p $$'
                 sh 'java --version'
-                // sh 'export JAVA_HOME=$(/usr/bin)'
                 sh "cd web-server/sushifactory-webserver/sushifactory-webserver; mvn -B -DskipTests clean package"
                 stash includes: 'web-server/**/target/*.jar', name: 'jarfile'
             }
@@ -65,6 +64,11 @@ pipeline {
                 sh 'ps -p $$'
                 sh 'docker --version'
                 sh 'kubectl get nodes'
+                sh '''
+                    cd kubernetes
+                    kubectl delete namespace test
+                    kubectl apply -f . --recursive
+                '''
             }
         }
     }
