@@ -29,15 +29,11 @@ metadata:
   name: parser-service
   namespace: test
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app.kubernetes.io/name: parser
   ports:
-    - port: 8000
-      # By default and for convenience, the `targetPort` is set to
-      # the same value as the `port` field.
-      targetPort: 8000
-      # Optional field
-      # By default and for convenience, the Kubernetes control plane
-      # will allocate a port from a range (default: 30000-32767)
-      nodePort: 30302
+  - name: http
+    port: 8000
+    targetPort: 8000
+    protocol: TCP
