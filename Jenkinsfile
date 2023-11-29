@@ -64,9 +64,7 @@ pipeline {
                 sh 'whoami'
                 sh 'ps -p $$'
                 sh 'docker --version'
-                // sh '''
-                //     /usr/local/bin/kubectl get nodes
-                // '''
+                sh 'kubectl get nodes'
             }
         }
     }
