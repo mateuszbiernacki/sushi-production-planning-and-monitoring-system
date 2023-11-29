@@ -66,7 +66,7 @@ pipeline {
                 sh 'kubectl get nodes'
                 sh '''
                     cd kubernetes
-                    kubectl delete namespace test
+                    kubectl delete namespace test || echo "Namespace test does not exist"
                     kubectl apply -f . --recursive
                 '''
             }
