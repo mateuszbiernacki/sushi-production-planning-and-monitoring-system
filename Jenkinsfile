@@ -1,9 +1,9 @@
 pipeline {
     agent {label "ubuntu"}
-    tools {
-        maven "maven-3.9.5"
-        jdk "21"
-    }
+    // tools {
+    //     maven "maven-3.9.5"
+    //     jdk "21"
+    // }
     stages {
         stage("Build maven"){
             steps {
