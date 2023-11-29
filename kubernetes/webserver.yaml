@@ -26,12 +26,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend-service
+  name: webserver-service
   namespace: test
 spec:
   type: NodePort
   selector:
-    app.kubernetes.io/name: frontend
+    app.kubernetes.io/name: webserver
   ports:
     - port: 8081
       # By default and for convenience, the `targetPort` is set to
