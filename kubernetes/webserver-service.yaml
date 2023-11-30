@@ -6,7 +6,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    name: webserver
+    app: webserver
   ports:
   - name: http
     port: 8081

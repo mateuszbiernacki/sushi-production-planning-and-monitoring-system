@@ -6,7 +6,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    name: frontend
+    app: frontend
   ports:
   - name: http
     port: 80

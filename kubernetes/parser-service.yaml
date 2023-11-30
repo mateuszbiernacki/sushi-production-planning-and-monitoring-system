@@ -6,7 +6,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    name: parser
+    app: parser
   ports:
   - name: http
     port: 8000
